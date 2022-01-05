@@ -12,6 +12,7 @@ public class kund {
 
 
 
+
     public String getName() {
         return name;
     }

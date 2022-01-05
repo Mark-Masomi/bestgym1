@@ -5,12 +5,13 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class trimming {
+public class in_och_utfil {
 
     public static List<kund> readDataFromFile(String readFromFile){
         String firstLine;
@@ -34,7 +35,7 @@ public class trimming {
 
                 }
 
-                kund p = new kund(personDataPartsFirstLine[1],personDataPartsFirstLine[0]
+                kund p = new kund(personDataPartsFirstLine[1].trim(),personDataPartsFirstLine[0].trim()
                         , betdat.get(betdat.size()-1));
 
                 kundList.add(p);
@@ -50,13 +51,12 @@ public class trimming {
 
     }
 
-    public static void writeDataToFile(String writeToFile, List<kund> prunedDownPersonList){
+    public static void writeDataToFile(String writeToFile,kund kund){
         Path outFilePath = Paths.get(writeToFile);
         try(PrintWriter w = new PrintWriter(
-                Files.newBufferedWriter(outFilePath))){
-            for ( kund p : prunedDownPersonList){
-                w.print(p.getName() + "\n");
-            }
+                Files.newBufferedWriter(outFilePath, StandardOpenOption.APPEND))){
+
+            w.print(kund.getName() +"  "+kund.getPersonNum()+"          "+LocalDate.now()+ "\n");
         }
         catch (FileNotFoundException e){
             System.out.println("Filen kunde inte hittas");
