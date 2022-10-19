@@ -31,9 +31,8 @@ public class in_och_utfil {
                 if (fileScanner.hasNext()){
                     secondLine = fileScanner.nextLine();
                     betdat.add(LocalDate.parse(secondLine));
-
-
                 }
+
 
                 kund p = new kund(personDataPartsFirstLine[1].trim(),personDataPartsFirstLine[0].trim()
                         , betdat.get(betdat.size()-1));
