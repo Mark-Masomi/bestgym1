@@ -10,8 +10,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class MenyMetoderTest {
 
     MenyMetoder menyMetoder = new MenyMetoder() ;
-    kund k1=new kund("Diamanda Djedi","7608021234", LocalDate.parse("2021-01-30"));
-    kund k2=new kund("Chamade Coriola","8512021234", LocalDate.parse("2017-03-12"));
+    kund k1=new kund("Diamanda Djedi","7608021234", LocalDate.parse("2022-01-30"));
+    kund k2=new kund("Chamade Coriola","8512021234", LocalDate.parse("2018-03-12"));
 
     @Test
     void giltigtmedlemskap() {
